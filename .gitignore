@@ -10,6 +10,9 @@
 *.userosscache
 *.sln.docstates
 
+# DB Password
+Web.config
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

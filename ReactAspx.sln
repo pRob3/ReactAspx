@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactAspx", "ReactAspx\ReactAspx.csproj", "{93BB988D-E388-457A-AEBE-7AA3517C0326}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93BB988D-E388-457A-AEBE-7AA3517C0326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93BB988D-E388-457A-AEBE-7AA3517C0326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93BB988D-E388-457A-AEBE-7AA3517C0326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93BB988D-E388-457A-AEBE-7AA3517C0326}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB361DC0-8880-42C4-BC10-662793A50ED8}
+	EndGlobalSection
+EndGlobal

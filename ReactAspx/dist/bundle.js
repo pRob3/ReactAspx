@@ -121,6 +121,17 @@ class MenuBox extends React.Component {
         this.setState(tmp);
         document.getElementById('dvcart').style.visibility = 'visible';
     }
+    toggleView() {
+        var elm = document.getElementById('cartContent');
+        if (elm.style.display == 'block') {
+            elm.style.display = 'none';
+            document.getElementById('btnToggle').innerText = '+';
+        }
+        else {
+            elm.style.display = 'block';
+            document.getElementById('btnToggle').innerText = '-';
+        }
+    }
     getLoginStatus() {
         var xhr = new XMLHttpRequest();
         xhr.open('get', '/data/GetUserId/', true);
@@ -252,6 +263,9 @@ class MenuBox extends React.Component {
             React.createElement("div", { id: "wrapper" },
                 React.createElement("div", { id: "dvmenu" }, menuList),
                 React.createElement("div", { id: "dvcart" },
+                    React.createElement("div", { className: 'myCart' },
+                        "My Cart ",
+                        React.createElement("button", { id: "btnToggle", className: "smartButton", onClick: this.toggleView.bind(this) }, "+")),
                     React.createElement("div", { id: "cartContent" }, myItems),
                     totalAndContinueLink))));
     }

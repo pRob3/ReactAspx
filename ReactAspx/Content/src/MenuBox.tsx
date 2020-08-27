@@ -29,6 +29,18 @@ export class MenuBox extends React.Component<any, IAppState> {
 
     }
 
+    toggleView() {
+        var elm = document.getElementById('cartContent');
+        if (elm.style.display == 'block') {
+            elm.style.display = 'none';
+            document.getElementById('btnToggle').innerText = '+';
+        }
+        else {
+            elm.style.display = 'block';
+            document.getElementById('btnToggle').innerText = '-';
+        }
+    }
+
     getLoginStatus() {
         var xhr = new XMLHttpRequest();
         xhr.open('get', '/data/GetUserId/', true);
@@ -177,6 +189,12 @@ export class MenuBox extends React.Component<any, IAppState> {
                     </div>
 
                     <div id="dvcart">
+
+                        <div className='myCart'>
+                            My Cart <button id="btnToggle" className="smartButton"
+                                onClick={this.toggleView.bind(this)}>+</button>
+                        </div>
+
                         <div id="cartContent">
                             {myItems}
                         </div>

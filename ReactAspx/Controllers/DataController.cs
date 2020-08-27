@@ -1,6 +1,7 @@
 ﻿using ReactAspx.Models;
 using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.Mvc;
 
 namespace ReactAspx.Controllers
@@ -26,6 +27,7 @@ namespace ReactAspx.Controllers
 
         // GET: GetUserId
         [HttpGet]
+        [AuthorizeBubblan]
         public string GetUserId()
         {
             int uid = -1;
@@ -38,6 +40,7 @@ namespace ReactAspx.Controllers
 
         // POST: Data
         [HttpPost]
+        [AuthorizeBubblan]
         public ActionResult PlaceOrder(IList<FoodItem> items, int id)
         {
             bool dbSuccess = false;
@@ -86,6 +89,35 @@ namespace ReactAspx.Controllers
                 return Json("success: true", JsonRequestBehavior.AllowGet);
             else
                 return Json("success: false", JsonRequestBehavior.AllowGet);
+        }
+    }
+
+    public class AuthorizeBubblan : AuthorizeAttribute
+    {
+        protected override bool AuthorizeCore(HttpContextBase httpContext)
+        {
+            if (httpContext == null) throw new ArgumentNullException("httpContext");
+
+            // Make sure the user is logged in.
+            if (httpContext.Session["Email"] == null)
+            {
+                return false;
+            }
+
+            // Do you own custom stuff here
+            // Check if the user is allowed to Access resources;
+
+            return true;
+        }
+
+        public override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            base.OnAuthorization(filterContext);
+
+            if (this.AuthorizeCore(filterContext.HttpContext) == false)
+            {
+                filterContext.Result = new RedirectResult("/Account/Login/?ret=" + filterContext.HttpContext.Request.CurrentExecutionFilePath);
+            }
         }
     }
 }

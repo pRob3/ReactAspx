@@ -6,4 +6,5 @@ npm install --save react-dom @types/react-dom
 npm install --save typescript awesome-typescript-loader source-map-loader 
 typings install dt~react dt~react-dom -–save
 npm install   
-npm link typescript  
+npm link typescript
+npm install --save-dev @types/react @types/react-dom
